@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student table</title>
+  <style>
+    #table1 {
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="/show"> SHOW ALL RECORDS </a>
+  <table border="1" id="table1">
+
+    <% for(key in data[0]) {%>
+      <th>
+        <%=key%>
+      </th>
+      <%}%>
+        </tr>
+        <% for(i=0;i<data.length;i++) {%>
+          <tr>
+            <% for(key in data[0]) {%>
+              <td>
+                <%=data[i][key]%>
+              </td>
+              <%}%>
+          </tr>
+          <%}%>
+
+
+  </table>
+</body>
+
+</html>

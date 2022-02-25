@@ -1,0 +1,305 @@
+<%- include('partial/header.ejs') %>
+
+    <form action="/jobAppAction" method="post" onsubmit="return validateform()">
+
+        <body>
+            <center>
+                <h1>Job Application Form</h1>
+            </center>
+            <center>
+                <!--Basic Details-->
+                <fieldset id="basicdetail">
+                    <legend>
+                        Basic Details:
+                    </legend>
+                    <table>
+                        <tr>
+                            <td><label>First Name:</label></td>
+                            <td><input type="text" id="fname" name="fname" placeholder="Enter your name"></td>
+
+                            <td><label>Last Name:</label></td>
+                            <td><input type="text" id="lname" name="lname" placeholder="Enter your last name"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Designation</label></td>
+                            <td><input type="text" id="deg" name="deg" placeholder="Enter your Designation"></td>
+
+                            <td><label>Address 1</label></td>
+                            <td><input type="text" id="add1" name="add1" placeholder="Enter your address"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Email:</label></td>
+                            <td><input type="text" id="email" name="email" placeholder="Enter your email"></td>
+
+                            <td><label>Address 2</label></td>
+                            <td><input type="text" id="add2" name="add2" placeholder="Enter your address"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Phone Number:</label></td>
+                            <td><input type="text" name="phn_no" placeholder="Enter your phone number" maxlength="10"
+                                    id="phn_no"></td>
+                            <td><label>state</label></td>
+                            <td> <select name="state">
+                                    <option value="Gujarat">"Gujarat"</option>
+                                    <option value="Maharastra">Maharastra</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><label>City</label></td>
+                            <td> <input type="text" id="ci" name="city"></td>
+
+
+                        </tr>
+                        <tr>
+                            <td colspan="2"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>Gender:</label></td>
+                            <td>Male<input type="radio" value="Male" name="gen" id="genm">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Female<input type="radio" value="Female" name="gen" id="genf"> </td>
+
+                            <td><label>Zip Code:</label></td>
+                            <td><input type="text" placeholder="enter your zip code" id="zip" name="zipcode"></input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label>RelationShip Status</label></td>
+                            <td> <select name="rela">
+                                    <option value="single">single</option>
+                                    <option value="Married">married</option>
+
+                                </select></td>
+                            <td><label>Date of Birth:</label></td>
+                            <td><input type="date" id="date" name="bod"></input></td>
+                        </tr>
+                    </table>
+                    <input type="button" value="next" onclick="wizard('basicdetail','education')">
+                </fieldset>
+                <!--Education -->
+                <fieldset id="education">
+                    <legend>
+                        Education Details
+                    </legend>
+                    <table id="mytable">
+                        <tr>
+                            <td><input type="hidden" name="ecounter" id="ecounter" value=2></td>
+                            <td colspan="4"><input type="button" style="float: right;" onclick="addrow()" value="+">
+                            </td>
+                        </tr>
+                        <tr id="edu1">
+                            <td><Label id="course">Course Name</Label>&nbsp;&nbsp;
+                                <select id='course1' name='course1'>
+                                    <option value="None">None</option>
+                                    <option value="ssc">ssc</option>
+                                    <option value="hsc">hsc</option>
+                                    <option value="bachelor">bachelor</option>
+                                    <option value="master">master</option>
+                                </select>
+                            </td>
+                            <td><Label>University</Label>&nbsp;&nbsp;<input type="text" name="uni1"
+                                    id="board_or_university1" size="10"></td>
+                            <td><Label>Passing Year</Label>&nbsp;&nbsp;<input type="text" name="pss1" id="pass_year1"
+                                    size="10"></td>
+                            <td><Label>Percentage</Label>&nbsp;&nbsp;<input type="text" name="per1" id="percentege1"
+                                    size="10"></td>
+
+                        </tr>
+                        <br>
+                    </table>
+                    <input type="button" value="prev" onclick="wizard('education','basicdetail')">
+                    <input type="button" value="next" onclick="wizard('education','workexperience')">
+                </fieldset>
+                <fieldset id="workexperience">
+                    <legend>
+                        Work experience
+                    </legend>
+                    <table id="worktable">
+                        <tr>
+                            <td><input type="hidden" name="wcounter" id="wcounter" value=2></td>
+                        <tr>
+                            <td colspan="5"><input type="button" style="float: right;" onclick="addwork()" value="+">
+                            </td>
+                        </tr>
+                        <tr id="work1">
+                            <td><Label>Company Name</Label>&nbsp;&nbsp;<input type="text" id="c_nm1" name="c_nm1"></td>
+                            <td><Label>Designation</Label>&nbsp;&nbsp;<input type="text" id="design1" name="design1">
+                            </td>
+                            <td><Label>From</Label>&nbsp;&nbsp;<input type="date" id="from1" name="from1"></td>
+                            <td><Label>to</Label>&nbsp;&nbsp;<input type="date" id="tp1" name="tp1"></td>
+                            <td><input type="button" onclick='removeEdu("work1")' value="-"></td>
+                        </tr>
+                    </table>
+                    <input type="button" value="prev" onclick="wizard('workexperience','education')">
+                    <input type="button" value="next" onclick="wizard('workexperience','language')">
+                </fieldset>
+                <div id="container">
+                    <fieldset class="box" id="language">
+                        <legend>Language Known</legend>
+                        <table id="langtable">
+                            <tr>
+                                <td><input type="hidden" name="lcounter" id="lcounter" value=2></td>
+                            <tr>
+                                <td colspan="5"><input type="button" style="float: right;" onclick="addlang()"
+                                        value="+"></td>
+                            </tr>
+                            <tr id="lang">
+                                <td>
+                                    <select id='lang1' name='lang1'>
+                                        <option value="select">Select language</option>
+                                        <option value="hindi">hindi</option>
+                                        <option value="english">english</option>
+                                        <option value="gujarati">gujarati</option>
+
+                                    </select>
+                                </td>
+                                <td><input type="checkbox" id="read1" name="read1">&nbsp;&nbsp;<Label>read</Label></td>
+                                <td><input type="checkbox" id="write1" name="write1">&nbsp;&nbsp;<Label>write</Label>
+                                </td>
+                                <td><input type="checkbox" id="speak1" name="speak1">&nbsp;&nbsp;<Label>speak</Label>
+                                </td>
+                                <td><input type="button" onclick='removeEdu("lang1")' value="-"></td>
+                            </tr>
+                        </table>
+                        <input type="button" value="prev" onclick="wizard('language','workexperience')">
+                        <input type="button" value="next" onclick="wizard('language','technology')">
+                    </fieldset>
+                    <fieldset class="box" id="technology">
+                        <legend>Technologies you know</legend>
+                        <table id="techtable">
+                            <tr>
+                                <td><input type="hidden" name="tcounter" id="tcounter" value=2></td>
+                            <tr>
+                                <td colspan="5"><input type="button" style="float: right;" onclick="addtech()"
+                                        value="+"></td>
+                            </tr>
+                            <tr id="techo">
+
+                                <td> <select id='tech1' name='tech1'>
+                                        <option value="select">Select technology</option>
+                                        <option value="php">php</option>
+                                        <option value="mysql">mysql</option>
+                                        <option value="lavavel">laravel</option>
+                                        <option value="oracle">oracle</option>
+
+                                    </select></td>
+                                <td><input type="radio" id="be1" name="teh1"
+                                        value="beginer">&nbsp;&nbsp;<Label>Beginer</Label></td>
+                                <td><input type="radio" id="mi1" name="teh1"
+                                        value="Mideator">&nbsp;&nbsp;<Label>Mideator</Label></td>
+                                <td><input type="radio" id="ex1" name="teh1"
+                                        value="Expert">&nbsp;&nbsp;<Label>Expert</Label></td>
+                                <td><input type="button" onclick='removeEdu("tech1")' value="-"></td>
+                            </tr>
+
+                        </table>
+                        <input type="button" value="prev" onclick="wizard('technology','language')">
+                        <input type="button" value="next" onclick="wizard('technology','referencecontact')">
+                    </fieldset>
+                </div>
+                <fieldset id="referencecontact">
+                    <legend>
+                        Referance Contact
+                    </legend>
+                    <table>
+                        <tr>
+                            <td><Label>Name</Label>&nbsp;&nbsp;<input type="text" id="rename1" name="refre"></td>
+
+                            <td><Label>Contact Number</Label>&nbsp;&nbsp;<input type="text" maxlength="10" id="renum1"
+                                    name="contect_no"></td>
+                            <td><Label>Relation</Label>&nbsp;&nbsp;<input type="text" id="rerela1" name="relation1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><br></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <Label>Name</Label>&nbsp;&nbsp;<input type="text" id="rename2" name="refre2">
+                            </td>
+                            <td><Label>Contact Number</Label>&nbsp;&nbsp;<input type="text" maxlength="10" id="renum2"
+                                    name="contect_no2"></td>
+                            <td><Label>Relation</Label>&nbsp;&nbsp;<input type="text" id="rerela2" name="relation2">
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="button" value="prev" onclick="wizard('referencecontact','workexperience')">
+                    <input type="button" value="next" onclick="wizard('referencecontact','preferences')">
+                </fieldset>
+                <fieldset id="preferences">
+                    <legend>
+                        Preferances
+                    </legend>
+                    <table>
+                        <tr>
+                            <td><label>Preferd location:</label>&nbsp;&nbsp;
+                                <select multiple name="loca">
+                                    <option value="Item One">Item One</option>
+                                    <option value="Item Two">Item Two</option>
+                                    <option value="Item Three">Item Three</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label>Notice period </label>&nbsp;&nbsp;<input type="text" id="np"
+                                    name="n_per"><br><br>
+                                <label>Expacted CTC </label>&nbsp;&nbsp;<input type="text" id="e_ctc" name="e_ctc">
+                                <br><br>
+                                <label>Current CTC </label>&nbsp;&nbsp;<input type="text" id="c_ctc" name="c_ctc">
+                                <br><br>
+                            </td>
+                            <td>
+                                <label>Department:</label>&nbsp;&nbsp;
+                                <select name="dept">
+                                    <option value="Design">Design</option>
+                                    <option value="Marketing">marketing</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="button" value="prev" onclick="wizard('preferences','referencecontact')">
+                    
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="submit" value="submit" name="sub">
+                                
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </fieldset>
+
+    </form>
+
+    <script>
+        document.getElementById('education').style.display = "none";
+        document.getElementById('language').style.display = "none";
+        document.getElementById('technology').style.display = "none";
+        document.getElementById('preferences').style.display = "none";
+        document.getElementById('referencecontact').style.display = "none";
+        document.getElementById('workexperience').style.display = "none";
+
+        function wizard(curr, next) {
+            document.getElementById(curr).style.display = "none";
+            document.getElementById(next).style.display = "block";
+
+        }
+    </script>
+
+    </body>

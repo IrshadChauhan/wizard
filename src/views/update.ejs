@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script >
+    let counter=0;
+    let workcounter=0;
+    let techcounter = 0;
+    let langcounter = 0;
+    
+    function addrow() {
+     counter = parseInt(document.getElementById("ecounter").value);
+    console.log(counter);
+    var education_table = document.getElementById("mytable");
+    var row_count = education_table.rows.length;
+    var row = education_table.insertRow();
+  
+  
+    row.id = "edu" + counter;
+    var cell1 = row.insertCell();
+    var cell2 = row.insertCell();
+    var cell3 = row.insertCell();
+    var cell4 = row.insertCell();
+    var cell5 = row.insertCell();
+  
+    cell1.innerHTML =
+      "<br><label for='course" +
+      counter +
+      "'>Course name&nbsp;&nbsp;</label>" +
+      "<select id='course" +
+      counter +
+      "' name='course" +
+      counter +
+      "'>" +
+      "<option value='None'>None</option>" +
+      "<option value='ssc'>ssc</option>" +
+      " <option value='hsc'>hsc</option>" +
+      " <option value='bachelor'>bachelor</option>" +
+      "<option value='master'>master</option>" +
+      "</select>";
+    cell2.innerHTML =
+      "<label for='board_or_university" +
+      counter +
+      "'>University&nbsp;&nbsp;</label>" +
+      " <input type='text' size='10' id='board_or_university" +
+      counter +
+      "' name='uni" +
+      counter +
+      "'>";
+  
+    cell3.innerHTML =
+      "<label for='pass_year" +
+      counter +
+      "'>Passing Year&nbsp;&nbsp;</label>" +
+      " <input type='text' size='10' id='pass_year" +
+      counter +
+      "' name='pss" +
+      counter +
+      "'>";
+  
+    cell4.innerHTML =
+      "<label for='percentege" +
+      counter +
+      "'>Percentage&nbsp;&nbsp;</label>" +
+      " <input type='text' size='10' id='percentege" +
+      counter +
+      "' name='per" +
+      counter +
+      "'>";
+  
+    cell5.innerHTML =
+      "<input type='button' id='edu" +
+      counter +
+      "' onclick='removeEdu(this.id,0,counter)' value='-'>";
+  
+    counter = counter + 1;
+    console.log(document.getElementById("ecounter").value = counter);
+  }
+  function removeEdu(n, d1,count) {
+    var td = event.target.parentNode;
+    var tr = td.parentNode;
+   if(d1==1)
+   {
+    count=count-1;
+    document.getElementById("wcounter").value=count;
+    console.log( document.getElementById("wcounter").value=count)
+   }
+   if(d1==0)
+   {
+     console.log("rte",count)
+    count=count-1;
+    document.getElementById("ecounter").value=count;
+    console.log( document.getElementById("ecounter").value=count)
+   }
+   if(d1==2)
+   {
+     console.log("rte",count)
+    count=count-1;
+    document.getElementById("lcounter").value=count;
+    console.log( document.getElementById("lcounter").value=count)
+   }
+   if(d1==3)
+   {
+     console.log("rte",count)
+    count=count-1;
+    document.getElementById("tcounter").value=count;
+    console.log( document.getElementById("tcounter").value=count)
+   }
+    //console.log((document.getElementById(d1).value = n));
+    // console.log(document.getElementById(d1.toString()).value);
+    console.log(d1);
+  
+    var c = confirm("do you want to delete this row");
+    if (c === true) {
+      tr.parentNode.removeChild(tr);
+    } else {
+      event.preventDefault();
+    }
+  
+    // var element = document.getElementById(n);
+    // var choice = confirm("Do you really went to deglete this record?");
+    // if (choice == true) {
+    //   element.parentNodeg.removeChild(element);
+    // }
+  }
+  
+  function addwork() {
+    workcounter = parseInt(document.getElementById("wcounter").value);
+    var x = document.getElementById("worktable");
+    var wrow = x.insertRow();
+    wrow.id = "work" + workcounter;
+    var wcell1 = wrow.insertCell();
+    var wcell2 = wrow.insertCell();
+    var wcell3 = wrow.insertCell();
+    var wcell4 = wrow.insertCell();
+    var wcell5 = wrow.insertCell();
+  
+    wcell1.innerHTML =
+      "<br> <lable for='com'" +
+      workcounter +
+      "'>Company Name&nbsp;&nbsp;</lable>" +
+      "<input type='text' id='com" +
+      workcounter +
+      "' name='c_nm" +
+      workcounter +
+      "'>";
+    wcell2.innerHTML =
+      "<lable for='des" +
+      workcounter +
+      "deg'>degsignation&nbsp;&nbsp;</lable>" +
+      "<input type='text' id='des" +
+      workcounter +
+      "' name='des1" +
+      workcounter +
+      "'>";
+    wcell3.innerHTML =
+      "<lable for='f" +
+      workcounter +
+      "'>From&nbsp;&nbsp;</lable>" +
+      "<input type='date' id='f" +
+      workcounter +
+      "' name='from" +
+      workcounter +
+      "'>";
+    wcell4.innerHTML =
+      "<lable for='t" +
+      workcounter +
+      "'>to&nbsp;&nbsp;</lable>" +
+      "<input type='date' id='t" +
+      workcounter +
+      "' name='to" +
+      workcounter +
+      "'>";
+    wcell5.innerHTML =
+      "<input type='button' id='abc" +
+      workcounter +
+      "'  onclick='removeEdu(this.id,1,workcounter)' value='-'>";
+  
+    workcounter = workcounter + 1;
+  
+    console.log(document.getElementById("wcounter").value = workcounter);
+  }
+  
+  function addlang() {
+    langcounter = parseInt(document.getElementById("lcounter").value);
+    langcounter=langcounter+1;
+    var x = document.getElementById("langtable");
+    var lrow = x.insertRow();
+    lrow.id = "langs" + langcounter;
+    var lcell1 = lrow.insertCell();
+    var lcell2 = lrow.insertCell();
+    var lcell3 = lrow.insertCell();
+    var lcell4 = lrow.insertCell();
+    var lcell5 = lrow.insertCell();
+  
+    lcell1.innerHTML =
+      "<br> <select id='lang" +
+      langcounter +
+      "' name='lang" +
+      langcounter +
+      "'>" +
+      "<option value='select'>Select language</option>" +
+      "<option value='hindi'>hindi</option>" +
+      " <option value='english'>english</option>" +
+      " <option value='gujarati'>gujarati</option>" +
+      "</select>";
+    lcell2.innerHTML =
+      "<input type='checkbox' id='re" +
+      langcounter +
+      "' name='re" +
+      langcounter +
+      "' >&nbsp;&nbsp;<Label>read</Label>";
+    lcell3.innerHTML =
+      "<input type='checkbox' id='wr" +
+      langcounter +
+      "' name='wr" +
+      langcounter +
+      "' >&nbsp;&nbsp;<Label>write</Label>";
+    lcell4.innerHTML =
+      "<input type='checkbox' id='se" +
+      langcounter +
+      "' name='se" +
+      langcounter +
+      "' >&nbsp;&nbsp;<Label>speak</Label>";
+    lcell5.innerHTML =
+      "<input type='button' id='langs" +
+      langcounter +
+      "'  onclick='removeEdu(this.id,2,langcounter)' value='-'>";
+  
+    langcounter = langcounter + 1;
+    document.getElementById("lcounter").value = langcounter;
+  }
+  
+function addtech() {
+  techcounter = parseInt(document.getElementById("tcounter").value);
+  techcounter=techcounter+1;
+  var x = document.getElementById("techtable");
+  var trow = x.insertRow();
+  trow.id = "techo" + techcounter;
+  var tcell1 = trow.insertCell();
+  var tcell2 = trow.insertCell();
+  var tcell3 = trow.insertCell();
+  var tcell4 = trow.insertCell();
+  var tcell5 = trow.insertCell();
+
+  tcell1.innerHTML =
+    "<br> <select id='tech" +
+    techcounter +
+    "' name='tech" +
+    techcounter +
+    "'>" +
+    "<option value='select'>Select technology</option>" +
+    "<option value='php'>php</option>" +
+    "<option value='mysql'>mysql</option>" +
+    "<option value='lavavel'>laravel</option>" +
+    "<option value='oracle'>oracle</option>" +
+    "</select>";
+  tcell2.innerHTML =
+    "<input type='radio' id='be" +
+    techcounter +
+    "'name='teh" +
+    techcounter +
+    "'  >&nbsp;&nbsp;<Label>Beginer</Label>";
+  tcell3.innerHTML =
+    "<input type='radio' id='mi" +
+    techcounter +
+    "'name='teh" +
+    techcounter +
+    "'  >&nbsp;&nbsp;<Label>Midegator</Label";
+  tcell4.innerHTML =
+    "<input type='radio' id='ex" +
+    techcounter +
+    "'name='teh" +
+    techcounter +
+    "'>&nbsp;&nbsp;<Label>Expert</Label>";
+  tcell5.innerHTML =
+    "<input type='button' id='b" +
+    techcounter +
+    "'  onclick='removeEdu(this.id,3,techcounter)' value='-'>";
+
+  techcounter = techcounter + 1;
+  document.getElementById("tcounter").value = techcounter;
+}
+
+   </script>
+</head>
+<body>
+  <form action="/jobupdate?id=<%=id%>" method="post"  onsubmit="return validateform()" >
+      <center><h1>Job Application Form</h1></center>
+      <center>
+  <!--Basic Details-->  
+                  <fieldset>
+  <legend>     
+  Basic Details:    
+  </legend>               
+          <table>
+              <tr>
+                  <td><label>First Name:</label></td>
+                  <td><input type="text" id="fname" name="fname"  placeholder="Enter your name" value="<%= data[0].first_name %>" ></td>
+          
+                  <td><label>Last Name:</label></td>
+                  <td><input type="text" id="lname" name="lname"  placeholder="Enter your last name" value="<%= data[0].last_name %>"></td>
+              </tr>
+              <tr><td colspan="2"><br></td></tr>
+              <tr>
+                  <td><label>Designation</label></td>
+                  <td><input type="text" id="deg"  name="deg" placeholder="Enter your Designation" value="<%= data[0].designation %>"></td>
+          
+                  <td><label>Address 1</label></td>
+                  <td><input type="text" id="add1" name="add1" placeholder="Enter your address" value="<%= data[0].addr1 %>"></td>
+              </tr>
+              <tr><td colspan="2"><br></td></tr>
+              <tr>
+                  <td><label>Email:</label></td>
+                  <td><input type="text" id="email" name="email"  placeholder="Enter your email" value="<%= data[0].email %>"></td>
+          
+                  <td><label>Address 2</label></td>
+                  <td><input type="text" id="add2"  name="add2" placeholder="Enter your address" value="<%= data[0].addr2 %>"></td>
+              </tr>
+              <tr><td colspan="2"><br></td></tr>
+              <tr>
+                  <td ><label>Phone Number:</label></td>
+                  <td ><input type="text" name="phn_no" placeholder="Enter your phone number" maxlength="10" id="phn_no" value="<%= data[0].phone_number %>"></td>
+                  <td><label>state</label></td>
+                  <td> <select name="state" value="<%= data[0].state %>">
+                   
+                      <option value="Gujarat">"Gujarat"</option>
+                      <option value="Maharastra">Maharastra</option>
+                  </select></td>
+              </tr>
+              <tr>
+                  <td ></td>
+                  <td ></td>
+                  <td><label>City</label></td>
+                  <td> <input type="text" id="ci" name="city" value="<%= data[0].city %>"></td>
+                  
+  
+              </tr>
+              <tr><td colspan="2"><br></td></tr>
+              <tr>
+                  <td><label >Gender:</label></td>
+                  <% let statusg = data[0].gender %>
+                  <% if(statusg == "Male"){%>
+                  <td>Male<input type="radio" value="Male" name="gen" id="genm" checked>
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                     Female<input type="radio" value="Female" name="gen" id="genf">  </td>
+                     <%}else{%>
+                     <td>Male<input type="radio" value="Male" name="gen" id="genm">
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                     Female<input type="radio" value="Female" name="gen" id="genf" checked>  </td>
+                     <%}%>
+                  <td><label>Zip Code:</label></td>
+                  <td><input type="text" placeholder="enter your zip code"  id="zip" name="zipcode" value="<%= data[0].zip_code %>"></input></td>
+              </tr>
+              <tr><td colspan="2"><br></td></tr>
+              <tr>
+                  <td><label>RelationShip Status</label></td>
+                  <td> <select name="rela"  >
+                    <% let status = data[0].relation_status %>
+                    <% if(status == "single"){%>
+                      <option value="single" selected>single</option>
+                      <option value="Married">married</option>
+                    <%}else{%>
+                      <option value="single">single</option>
+                      <option value="Married" selected>married</option>
+                    <%}%>
+                     
+                  </select></td> 
+                  <td><label>Date of Birth:</label></td>
+                  <td><input type="date"   id="date" name="bod" value="<%=data[0].date_of_birth %>"></input></td>
+              </tr>
+          </table>
+      </fieldset>
+      <br><br><br>
+  <!--Education -->
+        <fieldset>
+              <legend>
+                  Education Details  
+              </legend> 
+           <table id="mytable" >
+            <%for(let i = 0 ; i <data2.length ; i++){%>
+  
+               <tr><td><input type="hidden" name="ecounter" id="ecounter" value="2" ></td>
+                <td colspan="4"><input type="button" style="float: right;" onclick="addrow()" value="+"></td></tr>
+                <tr id="edu1"  >
+                  <td ><Label id="course">Course Name</Label>&nbsp;&nbsp;
+                    <select id='course1' name='course<%=i+1%>'>
+                     <%if(data2[i].course == 'hsc'){%>
+                        <option value="None">None</option>
+                      <option value="ssc">ssc</option>
+                      <option value="hsc" selected>hsc</option>
+                      <option value="bachelor">bachelor</option>
+                      <option value="master">master</option>
+                      <%}else if(data2[i].course == 'ssc'){%>
+                        <option value="None">None</option>
+                      <option value="ssc" selected>ssc</option>
+                      <option value="hsc">hsc</option>
+                      <option value="bachelor">bachelor</option>
+                      <option value="master">master</option>
+                      <%}else if(data2[i].course == 'bachelor'){%>
+                        <option value="None">None</option>
+                        <option value="ssc">ssc</option>
+                        <option value="hsc">hsc</option>
+                        <option value="bachelor" selected>bachelor</option>
+                        <option value="master">master</option>
+                        <%}else{%>
+                        <option value="None">None</option>
+                        <option value="ssc">ssc</option>
+                        <option value="hsc">hsc</option>
+                        <option value="bachelor">bachelor</option>
+                        <option value="master" selected>master</option>
+                        <%}%>
+                      
+                    </select></td>
+                    <td><Label>University</Label>&nbsp;&nbsp;<input type="text" name="uni<%=i+1%>"+ id="board_or_university1" size="10" value="<%=data2[i].university %>" ></td>
+                    <td><Label>Passing Year</Label>&nbsp;&nbsp;<input type="text" name="pss<%=i+1%>" id="pass_year1" size="10" value="<%=data2[i].passingyear %>" ></td>
+                    <td><Label>Percentage</Label>&nbsp;&nbsp;<input type="text"  name="per<%=i+1%>" id="percentege1" size="10" value="<%=data2[i].percentage %>" ></td>
+                  </tr>
+                  <br>  
+                <%}%>
+          </table>
+      </fieldset>
+      <br><br><br>
+      <fieldset>
+        <legend>
+            Work experience
+        </legend>
+        <!--   ======================================================================== -->
+    <table id="worktable">
+      <%for(let i = 0 ; i <data3.length ; i++){%>
+        <tr><td><input type="hidden" name="wcounter" id="wcounter" value=2 ></td>
+        <tr><td colspan="5"><input type="button" style="float: right;" onclick="addwork()" value="+"></td></tr>
+        <tr id="work1">
+    <td ><Label>Company Name</Label>&nbsp;&nbsp;<input type="text" id="c_nm1"  name="c_nm1" value="<%=data3[i].c_name%>" ></td>
+            <td><Label>Designation</Label>&nbsp;&nbsp;<input type="text" id="design1" name="design1" value="<%=data3[i].designation%>"></td>
+            <td><Label>From</Label>&nbsp;&nbsp;<input type="date" id="from1" name="from1" value="<%=data3[i].from_date%>"></td>
+            <td><Label>to</Label>&nbsp;&nbsp;<input type="date" id="tp1" name="tp1" value="<%=data3[i].end_date%>"></td>
+            <td><input type="button"  onclick='removeEdu("work1")' value="-"></td>
+        </tr>
+        <%}%>
+    </table>
+    </fieldset>    
+  <br><br><br>
+  <!-- ============================================================== -->
+  <div id="container">
+    <fieldset class="box">
+      <legend>Language Known</legend>
+      <table id="langtable">
+          <tr><td><input type="hidden" name="lcounter" id="lcounter" value="<%=data6.length%>"></td><td colspan="4"><input type="button" style="float: right;" onclick="addlang()" value="+"></td></tr>
+          <%for(let i=0;i<data6.length;i++){%>
+          <tr id="lang">
+       
+          <td >
+              <select id='lang1' name='lang<%=i+1%>'>
+                  <option value="select">Select language</option>
+                  <% if(data6[i]['lang']=="hindi"){ %>
+                  <option value="hindi" selected>hindi</option>
+                  <option value="english">english</option>
+                  <option value="gujarati">gujarati</option>
+    
+                  <%} else if(data6[i]['lang']=="english")
+                  {%>
+                    <option value="hindi" >hindi</option>
+                    <option value="english" selected>english</option>
+                    <option value="gujarati">gujarati</option>
+                <%  } else {%>
+                  <option value="hindi" >hindi</option>
+                  <option value="english" >english</option>
+                  <option value="gujarati" selected>gujarati</option>
+              <% }%>
+    
+                  
+              </select></td>
+              <% if(data6[i]['readdata'] == "on"){ %>
+          <td >
+          <input type="checkbox" id="read1" name="read<%=i+1%>" checked>&nbsp;&nbsp;<Label>read</Label></td>
+          <%}else{%>
+            <td><input type="checkbox" id="re1" name="read<%=i+1%>" >&nbsp;&nbsp;<Label>read</Label></td>
+         <% }%>
+         <% if(data6[i]['writedata'] == "on"){ %>
+          <td >
+          <input type="checkbox" id="write1" name="write<%=i+1%>" checked>&nbsp;&nbsp;<Label>write</Label></td>
+          <%}else{%>
+            <td><input type="checkbox" id="write1" name="write<%=i+1%>" >&nbsp;&nbsp;<Label>write</Label></td>
+         <% }%>
+         <% if(data6[i]['speakdata'] == "on"){ %>
+          <td >
+            <td ><input type="checkbox" id="speak1" name="speak<%=i+1%>" checked>&nbsp;&nbsp;<Label>speak</Label></td>
+          <%}else{%>
+            <td ><input type="checkbox" id="speak1" name="speak<%=i+1%>" >&nbsp;&nbsp;<Label>speak</Label></td>
+          <%}%> 
+          <%}%>
+        
+         
+      
+    </table>
+    </fieldset>
+ 
+  <!-- ======================================================================================================================== -->
+  <br><br><br><br><br>
+
+
+  <fieldset class="box">			
+    <legend>Technologies you know</legend>			
+    <table id="techtable">			
+    <tr><td><input type="hidden" name="tcounter" id="tcounter" value="<%=data7.length%>"><td colspan="4"><input type="button" style="float: right;" onclick="addtech()" value="+"></td></tr>			
+    <%for(let i=0;i<data6.length;i++){%>			
+    <tr id="techo">			
+    <td > <select id='tech<%=i+1%>' name='techno<%=i+1%>'>			
+    <option value="select">Select technology</option>			
+    <% if(data7[i]['tech_nm']=="php"){ %>			
+    <option value="php" selected>php</option>			
+    <option value="mysql">mysql</option>			
+    <option value="lavavel">laravel</option>			
+    <option value="oracle">oracle</option>			
+    <%} else if(data7[i]['tech_nm']=="mysql")			
+    {%> <option value="php" >php</option>			
+    <option value="mysql" selected>mysql</option>			
+    <option value="lavavel">laravel</option>			
+    <option value="oracle">oracle</option>			
+    <%} else if(data7[i]['tech_nm']=="lavavel")			
+    {%> <option value="php" >php</option>			
+    <option value="mysql" >mysql</option>			
+    <option value="lavavel" selected>laravel</option>			
+    <option value="oracle">oracle</option>			
+    <% } else {%>			
+    <option value="php" >php</option>			
+    <option value="mysql" >mysql</option>			
+    <option value="lavavel" >laravel</option>			
+    <option value="oracle" selected>oracle</option>			
+    <% }%>			
+    </select></td>			
+    <% if(data7[i]['status'] == "beginer"){ %>			
+    <td ><input type="radio" id="be<%=i+1%>" name="teh<%=i+1%>" value="beginer" checked>&nbsp;&nbsp;<Label>Beginer</Label></td>			
+    <td ><input type="radio" id="mi<%=i+1%>" name="teh<%=i+1%>" value="Mideator">&nbsp;&nbsp;<Label>Mideator</Label></td>			
+    <td ><input type="radio" id="ex<%=i+1%>" name="teh<%=i+1%>" value="Expert">&nbsp;&nbsp;<Label>Expert</Label></td>			
+    <td><input type="button" onclick='removeEdu("tech1")' value="-"></td>			
+    <%} else if(data7[i]['status']=="Mideator"){%>			
+    <td ><input type="radio" id="be<%=i+1%>" name="teh<%=i+1%>" value="beginer" >&nbsp;&nbsp;<Label>Beginer</Label></td>			
+    <td ><input type="radio" id="mi<%=i+1%>" name="teh<%=i+1%>" value="Mideator" checked>&nbsp;&nbsp;<Label>Mideator</Label></td>			
+    <td ><input type="radio" id="ex<%=i+1%>" name="teh<%=i+1%>" value="Expert">&nbsp;&nbsp;<Label>Expert</Label></td>			
+    <td><input type="button" onclick='removeEdu("tech1")' value="-"></td>			
+    <% } else {%>			
+    <td ><input type="radio" id="be<%=i+1%>" name="teh<%=i+1%>" value="beginer" >&nbsp;&nbsp;<Label>Beginer</Label></td>			
+    <td ><input type="radio" id="mi<%=i+1%>" name="teh<%=i+1%>" value="Mideator" >&nbsp;&nbsp;<Label>Mideator</Label></td>			
+    <td ><input type="radio" id="ex<%=i+1%>" name="teh<%=i+1%>" value="Expert" checked>&nbsp;&nbsp;<Label>Expert</Label></td>			
+    <td><input type="button" onclick='removeEdu("tech<%=i+1%>")' value="-"></td>			
+    <% }%>			
+    </tr>			
+    <% }%>			
+    </table>			
+    </fieldset>			
+          
+          
+          
+          
+  <!-- ======================================================================================================================================= -->
+  <fieldset>
+  <legend>
+  Referance Contact
+  </legend>
+  <table >
+  <tr>
+  <td ><Label>Name</Label>&nbsp;&nbsp;<input type="text" id="rename1"  name="refre" value="<%=data4[0].ref_name%>" ></td>
+  
+    <td><Label>Contact Number</Label>&nbsp;&nbsp;<input type="text" maxlength="10" id="renum1" name="contect_no" value="<%=data4[0].contact_number%>" ></td>
+    <td><Label>Relation</Label>&nbsp;&nbsp;<input type="text" id="rerela1" name="relation1" value="<%=data4[0].relation%>"></td>
+  </tr>
+  <tr><td colspan="2"><br></td></tr>
+  <tr>
+  <td >
+     <Label>Name</Label>&nbsp;&nbsp;<input type="text" id="rename2"  name="refre2" value="<%=data4[0].ref_name%>"></td>
+  <td><Label>Contact Number</Label>&nbsp;&nbsp;<input type="text" maxlength="10" id="renum2"  name="contect_no2" value="<%=data4[0].contact_number%>"></td>
+    <td><Label>Relation</Label>&nbsp;&nbsp;<input type="text" id="rerela2"  name="relation2 " value="<%=data4[0].relation%>"></td>
+  </tr>  
+  </table>
+  </fieldset>  
+  <br><br><br>
+  <fieldset>
+  <legend>
+  Preferances
+  </legend>
+  <table >
+  <tr>
+    <td><label>Preferd location:</label>&nbsp;&nbsp;
+                <select multiple name="loca">
+                    <option value="Item One">Item One</option>
+                    <option value="Item Two">Item Two</option>
+                    <option value="Item Three">Item Three</option>
+                </select></td>
+    <td>
+        <label>Notice period </label>&nbsp;&nbsp;<input type="text" id="np" name="n_per" value="<%=data5[0].notice_period%>"><br><br>
+        <label>Expacted CTC </label>&nbsp;&nbsp;<input type="text" id="e_ctc" name="e_ctc" value="<%=data5[0].expected_ctc%>"> <br><br>
+        <label>Current CTC  </label>&nbsp;&nbsp;<input type="text" id="c_ctc" name="c_ctc" value="<%=data5[0].current_ctc%>"> <br><br>
+    </td>  
+    <td>
+        <label>Department:</label>&nbsp;&nbsp;
+            <select name="dept">
+                <option value="Design">Design</option>
+                <option value="Marketing">marketing</option>
+            </select>
+    </td>          
+  </tr>
+  </table>    
+  </fieldset>
+      <table >
+        <tr>
+            <td>
+                <input type="submit" value="submit" name="sub" >
+            </td>          
+        </tr>
+         
+        </table>    
+        
+            </center>
+        </form>
+        <script src="../../public/js/script.js" ></script>
+        </body>
+</html>
+
+

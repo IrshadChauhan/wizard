@@ -1,0 +1,26 @@
+/* body  */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.header {
+  color: blue;
+}
+.footer {
+  color: red;
+}
+td{
+  text-align: center;
+  
+}
+table{
+ width: 80%;
+}
+legend{
+ color: green;
+}
+.box{
+ float: left;
+ width: 45%;
+}
